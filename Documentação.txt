@@ -1,0 +1,46 @@
+Rotas coringa:
+
+ {path: '**',
+  redirectTo: ''  
+  },
+
+const routes: Routes = [
+  {
+  path: '',
+  component: TitleComponent,
+  pathMatch: 'full'
+  },
+
+  {path: '**',
+  redirectTo: ''  
+  },
+
+  {
+  path: 'portfolio',
+  component: CardComponent,
+  pathMatch: 'full'
+  }
+
+
+
+
+recuperando parametros com rotas:
+
+export class CardComponent implements OnInit {
+  constructor(private activeRoute: ActivatedRoute) {
+    this.activeRoute.params.subscribe(
+      res => console.log(res)
+    )
+  }
+
+  ngOnInit(): void {
+      
+  }
+}
+
+
+  {
+  path: 'portfolio/:id',
+  component: CardComponent,
+  pathMatch: 'full'
+  }
